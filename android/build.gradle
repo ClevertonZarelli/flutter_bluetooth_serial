@@ -1,38 +1,31 @@
 group 'io.github.edufolly.flutterbluetoothserial'
 version '1.0-SNAPSHOT'
 
-
 buildscript {
     ext {
-        kotlin_version = '1.8.22' // Atualize para a versão mais recente do Kotlin
+        kotlin_version = '1.8.22' // Mantenha a versão do Kotlin aqui
     }
     repositories {
         google()
-        mavenCentral() // Recomendado usar Maven Central ao invés de JCenter (que está sendo descontinuado)
+        mavenCentral() // Use Maven Central ao invés do JCenter, que foi descontinuado
     }
-
     dependencies {
-        classpath 'com.android.tools.build:gradle:8.0.2' // Atualize o Android Gradle Plugin
+        classpath 'com.android.tools.build:gradle:8.0.2' // Mantenha o Android Gradle Plugin atualizado
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
 
-rootProject.allprojects {
-    repositories {
-        google()
-        mavenCentral()
-    }
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android' // Certifique-se de que o plugin Kotlin está sendo aplicado
 }
 
-apply plugin: 'com.android.library'
-
 android {
-    compileSdkVersion 33 // Atualize para o SDK mais recente
-    buildToolsVersion '33.0.0' // Atualize o buildTools
+    compileSdkVersion 33 // Atualizado para o SDK mais recente
 
     defaultConfig {
         minSdkVersion 19
-        targetSdkVersion 33 // Recomendado manter alinhado ao compileSdkVersion
+        targetSdkVersion 33
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -42,19 +35,17 @@ android {
     }
 
     kotlinOptions {
-        jvmTarget = "1.8" // Garante compatibilidade com o Kotlin 1.8
+        jvmTarget = "1.8"
     }
 
     lintOptions {
         disable 'InvalidPackage'
     }
 
-    dependencies {
-        implementation 'androidx.appcompat:appcompat:1.3.0'
-        implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version" // Adiciona a dependência do Kotlin
-    }
+    buildToolsVersion '33.0.0'
 }
 
 dependencies {
-    // Dependências adicionais podem ser inseridas aqui
+    implementation 'androidx.appcompat:appcompat:1.3.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 }
