@@ -1,3 +1,8 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+}
+
 group 'io.github.edufolly.flutterbluetoothserial'
 version '1.0-SNAPSHOT'
 
@@ -15,12 +20,8 @@ buildscript {
     }
 }
 
-plugins {
-    id 'com.android.library'
-    id 'kotlin-android' // Certifique-se de que o plugin Kotlin está sendo aplicado
-}
-
 android {
+    namespace = 'com.cleverton.flutter_bluetooth_serial'
     compileSdkVersion 33 // Atualizado para o SDK mais recente
 
     defaultConfig {
