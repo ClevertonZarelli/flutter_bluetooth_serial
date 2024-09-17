@@ -1,3 +1,17 @@
+buildscript {
+    ext {
+        kotlin_version = '1.8.22' 
+    }
+    repositories {
+        google()
+        mavenCentral() 
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:8.0.2'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
 plugins {
     id 'com.android.library'
     id 'kotlin-android'
@@ -6,23 +20,9 @@ plugins {
 group 'io.github.edufolly.flutterbluetoothserial'
 version '1.0-SNAPSHOT'
 
-buildscript {
-    ext {
-        kotlin_version = '1.8.22' // Mantenha a versão do Kotlin aqui
-    }
-    repositories {
-        google()
-        mavenCentral() // Use Maven Central ao invés do JCenter, que foi descontinuado
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:8.0.2' // Mantenha o Android Gradle Plugin atualizado
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-    }
-}
-
 android {
     namespace = 'com.cleverton.flutter_bluetooth_serial'
-    compileSdkVersion 33 // Atualizado para o SDK mais recente
+    compileSdkVersion 33 
 
     defaultConfig {
         minSdkVersion 19
